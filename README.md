@@ -1,37 +1,58 @@
-# MoErgo Glove80 Custom Configuration for ZMK
+# Sebas' Glove80 Layout
 
-![MoErgo Logo](moergo_logo.png)
+This repository contains my personal ZMK configuration for the MoErgo Glove80.
+The layout grew out of my daily workflow which is heavily focused on Python
+development, and editing everything in Neovim.
+It favors homerow modifiers for fast typing with minimal hand movement,
+quick layer-taps for navigation, and a thin symbol layer so I can stay
+anchored on the home row while typing. ( Perfect to avoid carpal tunnel! )
 
-This repo is the official ZMK configuration of the MoErgo Glove80 wireless split contoured keyboard. Use it to develop your own keymap and easily build your own ZMK firmware to run on your Glove80.
+## Layer Overview
 
-**NOTE: You can also customize the layout of your Glove80 keyboard with the Glove80 Layout Editor webapp. For most users Glove80 Layout Editor is the recommended and simpler option. More information is available at the official MoErgo Glove80 Support site (see resources below).**
+### Base Layer
 
-These steps will get you using your keymap on your keyboard in the fastest time possible. It uses the GitHub Actions feature to build your firmware online.
+The base layer keeps the standard alpha arrangement but leans on custom
+hold-tap behaviors for every home-row key. This makes it easy to chord common
+shortcuts in Neovim or tmux without stretching for dedicated modifier keys. A
+Magic layer tap is wired to the left thumb for Bluetooth and RGB controls, and
+the right thumb handles RGB toggles plus Enter.
 
-If you are looking to dig deeper into ZMK and develop new functionality, it is recommended to follow the steps of installing ZMK as found on the official ZMK documentation site (linked below).
+![Base layer](assets/base.png)
 
-## Resources
-- The [official MoErgo Glove80 Support](https://moergo.com/glove80-support) web site. Glove80 documentation and other technical resources.
-- The [official MoErgo Discord Server](https://moergo.com/discord). Instant conversations with other Glove80 users.
+### Symbol Layer
 
-- The [official ZMK Documentation](https://zmk.dev/docs) web site. Find the answers to many of your questions about ZMK Firmware.
-- The [official ZMK Discord Server](https://discord.gg/8cfMkQksSB). Instant conversations with other ZMK developers and users. Great technical resource!
+The symbol layer groups numbers, and punctuation, to reduce hand
+movement while coding. The trackpad cluster doubles as a pointing-layer with
+`mkp`/`mmv` bindings for quick cursor nudges.
+Holding either thumb activates this layer, while tapping still gives a very much desired
+an nice positioned Enter key.
 
-- The [official Glove80 ZMK Distribution](https://github.com/moergo-sc/zmk). Repositiory for ZMK firmware customized for Glove80. 
- 
-## Instructions
-1. Log into, or sign up for, your personal GitHub account.
-2. Create your own repository using this repository as a template ([instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)) and check it out on your local computer.
-3. Edit the keymap file(s) to suit your needs
-4. Commit and push your changes to your personal repo. Upon pushing it, GitHub Actions will start building a new version of your firmware with the updated keymap.
+![Symbol layer](assets/symbol.png)
 
-## Firmware Files
-To locate your firmware files and reflash your Glove80...
-1. log into GitHub and navigate to your personal config repository you just uploaded your keymap changes to.
-2. Click "Actions" in the main navigation, and in the left navigation click the "Build" link.
-3. Select the desired workflow run in the centre area of the page (based on date and time of the build you wish to use). You can also start a new build from this page by clicking the "Run workflow" button.
-4. After clicking the desired workflow run, you should be presented with a section at the bottom of the page called "Artifacts". This section contains the results of your build, in a file called "glove80.uf2"
-5. Download the glove80.uf2
-6. Flash the firmware to Glove80 according to the user documentation on the official Glove80 Glove80 Support website (linked above)
+### Navigation Layer
 
-Your keyboard is now ready to use.
+The navigation layer is dedicated to cursor movement anchored on the keyboard, mainly on the
+home row. Mouse movement is handled through key-based `mmv` bindings at multiple speeds for
+both precision and fast traversal, with nearby mouse-click bindings enabling full interaction
+without reaching for a physical mouse.
+
+![Navigation layer](assets/navigation.png)
+
+## Features
+
+- Homerow-mod (HRM) behaviors with tuned tapping terms per finger.
+- Layer-tap thumbs for instant access to the symbol layer without sacrificing Enter.
+- Combo bindings to enter navigation layer easily while keeping symbol and Enter keys in position.
+- Mouse-key bindings on the symbol layer for mouse use without leaving the keyboard.
+- Combos for frequently used characters (e.g., underscore) built around my workflow.
+- LOL gaming layer with alternative key positioning optimized for gaming.
+- RGB underglow with color-coded layer indicators (white, blue, green, red).
+- Bluetooth management with 4 device slots via tap-dance behaviors.
+
+## Building and loading Firmware into the Glove80
+
+1. Clone this repository (or your fork) and make any changes you need in
+   `config/glove80.keymap`.
+2. Push to GitHub to trigger the included "Build" workflow, or build locally
+   by doing just `./build.sh`.
+3. Flash the resulting `glove80.uf2` artifact onto each side of the keyboard.

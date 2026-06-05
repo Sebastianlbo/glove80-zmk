@@ -1,0 +1,145 @@
+/ {
+    macros {
+        rgb_ug_status_macro: rgb_ug_status_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_STATUS>;
+        };
+
+        bt_select_0: bt_select_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 0>;
+        };
+        bt_select_1: bt_select_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 1>;
+        };
+        bt_select_2: bt_select_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 2>;
+        };
+        bt_select_3: bt_select_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 3>;
+        };
+
+        cmd_mb1: cmd_mb1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>,
+                  <&macro_tap   &mkp MB1>,
+                  <&macro_release &kp LGUI>;
+        };
+        shift_mb1: shift_mb1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>,
+                  <&macro_tap   &mkp MB1>,
+                  <&macro_release &kp LSHFT>;
+        };
+
+        cmd_c: cmd_c {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>,
+                  <&macro_tap   &kp C>,
+                  <&macro_release &kp LGUI>;
+        };
+        cmd_v: cmd_v {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>,
+                  <&macro_tap   &kp V>,
+                  <&macro_release &kp LGUI>;
+        };
+        cmd_shift_5: cmd_shift_5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI &kp LSHFT>,
+                  <&macro_tap   &kp N5>,
+                  <&macro_release &kp LSHFT &kp LGUI>;
+        };
+        cmd_shift_tab: cmd_shift_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI &kp LSHFT>,
+                  <&macro_tap   &kp TAB>,
+                  <&macro_release &kp LSHFT &kp LGUI>;
+        };
+        shift_esc: shift_esc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>,
+                  <&macro_tap   &kp ESC>,
+                  <&macro_release &kp LSHFT>;
+        };
+
+        sym_layer_rgb: sym_layer_rgb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &mo LAYER_Symbol>,
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(240,100,50)>,
+                <&macro_pause_for_release>,
+                <&macro_release &mo LAYER_Symbol>,
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,50)>;
+        };
+
+        navi_layer_rgb: navi_layer_rgb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &mo LAYER_Navi>,
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(120,100,50)>,
+                <&macro_pause_for_release>,
+                <&macro_release &mo LAYER_Navi>,
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,50)>;
+        };
+
+        lol_layer_rgb: lol_layer_rgb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(225,100,20)>,
+                <&macro_tap &to LAYER_LOL>;
+        };
+
+        lol_layer_off: lol_layer_off {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,50)>,
+                <&macro_tap &to LAYER_Base>;
+        };
+
+        magic_layer_rgb: magic_layer_rgb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &mo LAYER_Magic>,
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(0,100,50)>,
+                <&macro_pause_for_release>,
+                <&macro_release &mo LAYER_Magic>,
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,50)>;
+        };
+    };
+};
