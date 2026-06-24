@@ -130,6 +130,14 @@
                 <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,50)>,
                 <&macro_tap &to LAYER_Base>;
         };
+        lol_layer_off_enter: lol_layer_off_enter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,50)>,
+                <&macro_tap &to LAYER_Base>,
+                <&macro_tap &kp ENTER>;
+        };
 
         magic_layer_rgb: magic_layer_rgb {
             compatible = "zmk,behavior-macro";
