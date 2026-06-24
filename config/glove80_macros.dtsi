@@ -93,6 +93,12 @@
                   <&macro_release &kp LSHFT>;
         };
 
+        tap_space: tap_space {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SPACE>;
+        };
+
         sym_layer_rgb: sym_layer_rgb {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
